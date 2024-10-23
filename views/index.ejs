@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List with Pomodoro Timer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css" type="">
+</head>
+<body>
+
+    <!-- Table of Daily Tasks -->
+    <table class="table table-bordered tasks-table" id="tasktable">
+        <thead class="thead-dark">
+            <tr>
+                <th></button>Task </th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Duration</th>
+                <th class="hidden timeleft">Time elapsed</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+    
+<div class="container col-sm-2"><button id="activatetask">add task</button></div>
+    <div class="container mt-5 hidden" id="addtask" >
+        <h2 class="text-center mb-4">Add New Task</h2>
+        <form id="taskform" >
+            <!-- Task Name -->
+            <div class="form-group">
+                <label for="taskName">Task Name</label>
+                <input name="name" type="text" class="form-control" id="taskName" placeholder="Enter task name" required>
+            </div>
+    
+            <!-- Task Description -->
+            <div class="form-group">
+                <label for="taskDescription">Description</label>
+                <textarea  name="description" class="form-control" id="taskDescription" rows="3" placeholder="Enter task description" required></textarea>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Start Time in 24 hour system</label>
+                <div class="col-sm-5">
+                    <input type="number" name="hours" class="form-control time-input" id="hours" placeholder="HH" min="0" max="23" required>
+                </div>
+                <div class="col-sm-5">
+                    <input type="number" name="minutes" class="form-control time-input" id="minutes" placeholder="MM" min="0" max="59" required>
+                </div>
+                <label class="col-sm-2 col-form-label">Duration in minutes</label>
+                <div class="col-sm-5">
+                    <input type="number" name="duration" class="form-control time-input" id="duration" placeholder="duration in minutes" min="5" max="240" required>
+                </div>
+            </div>
+            <div class="form-group >
+            <label for="priority">Priority (1 to 4): </label>
+            <input type="range" id="priority" name="priority" min="1" max="4" value="2" step="1" oninput="updatePriorityValue(this.value)">
+            <span id="priorityValue">1</span>
+           </div>
+          
+            <button type="submit" class="btn btn-primary  btn-block">Add Task</button>
+        </form> </div>
+
+    </div>
+
+<script>
+    function updatePriorityValue(value) {
+        if (value==1){
+            document.getElementById('priorityValue').style.cssText=('color:blue;background-color:white;')
+      document.getElementById('priorityValue').textContent = `${value}  \t low`;
+    }
+    if (value==2){
+        document.getElementById('priorityValue').style.cssText=('color:yellow;background-color:black')
+      document.getElementById('priorityValue').textContent = `${value}  \t moderate`;
+    }
+    if (value==3){
+        document.getElementById('priorityValue').style.cssText=('color:orange;background-color:black;')
+      document.getElementById('priorityValue').textContent = `${value}  \t high`;
+    }
+    if (value==4){document.getElementById('priorityValue').style.cssText=('color:red;background-color:black;')
+      document.getElementById('priorityValue').textContent = `${value}  \t very high`;
+    }}
+  </script>
+
+    <!-- Floating Bubble -->
+    <div class="floating-bubble" id="pomodoroBubble">
+        ⏲️
+    </div>
+
+    <!-- Pomodoro Timer Popup -->
+    <div class="pomodoro-timer-popup" id="pomodoroPopup">
+        <h5>Pomodoro Timer</h5>
+        <p id="timer">25:00</p>
+        <button class="btn btn-success" onclick="startTimer()">Start</button>
+        <button class="btn btn-danger" onclick="resetTimer()">Reset</button>
+    </div>
+
+    <script src="/js/index.js">
+       
+    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>

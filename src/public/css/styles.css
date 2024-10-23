@@ -1,0 +1,56 @@
+body {
+    padding: 20px;
+    
+    
+}
+#activatetask{border-radius: 12%;
+    width: 190px;
+    
+background-color: #007bff;
+color: white;
+
+}
+#activatetask:hover{background-color: white;
+color: black;}
+.hidden{display: none;}
+/* Table Styling */
+.tasks-table {
+    width: 100%;
+    margin-bottom: 30px;
+}
+/* Floating Bubble Button */
+.floating-bubble {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(blue,white,to top);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Dropdown Timer Popup */
+.pomodoro-timer-popup {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.pomodoro-timer-popup.show {
+    display: block;
+}
+input[type=range] {
+    width: 200px;
+  }
