@@ -31,7 +31,7 @@ app.get('/',(req,res)=>{
 app.get('/tasks',async (req,res)=>{ 
     let tasks=await taskmodel.find()
     
-    
+console.log(tasks)
     res.json(tasks)
 })
 app.post('/tasks',upload.none(), async (req,res)=>{
