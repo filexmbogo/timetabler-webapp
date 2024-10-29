@@ -7,6 +7,7 @@ const taskshema= new Schema({
     start_time_min:String,
     priority:String,
     taskdate:Date,
-    duration:String
+    duration:String,
+    period:String
 })
  module.exports=mongoose.model('task',taskshema)
