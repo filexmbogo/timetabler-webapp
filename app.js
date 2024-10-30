@@ -11,13 +11,13 @@ let tasks
 const uri = "mongodb+srv://filexmbogo:filexmbogo.691@cluster0.rff4u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create Mongoose connection
-mongoose.connect(uri, {
+await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
 const taskmodel=require('./src/models/tasks')
-
+const new_task=new taskmodel()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +37,6 @@ app.get('/tasks',async (req,res)=>{
 })
 
 app.post('/tasks',upload.none(), async (req,res)=>{
-    const new_task=new taskmodel()
     const date =new Date()
     const{name,description,hours,minutes,duration,priority,period}=req.body
     
