@@ -1,17 +1,19 @@
 body {
     padding: 20px;
-    
+    background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    color: #e9ecef;
+    font-family: Arial, sans-serif;
     
 }
 #activatetask{border-radius: 12%;
     width: 190px;
     
 background-color: #007bff;
-color: white;
+
 
 }
 #activatetask:hover{background-color: white;
-color: black;}
+}
 .hidden{display: none;}
 /* Table Styling */
 .tasks-table {
@@ -27,7 +29,7 @@ color: black;}
     height: 50px;
     background: linear-gradient(blue,white,to top);
     border-radius: 50%;
-    color: white;
+   
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +43,7 @@ color: black;}
     position: fixed;
     top: 80px;
     right: 20px;
-    background-color: white;
+    background-color:#3a3f44;
     width: 300px;
     padding: 20px;
     border: 1px solid #ddd;
@@ -54,3 +56,209 @@ color: black;}
 input[type=range] {
     width: 200px;
   }
+  #timeDisplay{
+    font-size: 2rem;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    
+  }
+  @media (max-width: 768px) {
+    .tasks-table {
+        display: block; 
+        overflow-x: scroll;/* Allow block display */
+         /* Enable horizontal scrolling if needed */
+        white-space: nowrap; /* Prevent wrapping */
+        margin: 1rem; /* Reset margins */
+    }
+
+    .tasks-table th, .tasks-table td {
+        min-width: 120px; /* Minimum width to ensure content is visible */
+    }
+}
+    .tasks-table th, .tasks-table td {
+        font-size: 0.85em;
+        max-width: 100vw;
+        
+    }
+    .container{max-width: 100%;}
+
+
+.table {
+    border-radius: 8px;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Stripe colors and hover effect */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #3a3f44;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #495057;
+}
+
+/* Text wrapping and alignment */
+.tasks-table th, .tasks-table td {
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    vertical-align: middle;
+}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+    
+
+
+/* Add Task Button Styling */
+.btn-add-task {
+    background-color: #2d3436;
+    color: #ff9f43;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+.btn-add-task:hover {
+    background-color: #37474f;
+    transform: scale(1.05);
+}
+
+/* Form Container Styling */
+.task-form-container {background: linear-gradient(145deg, #1c1f24, #121214);
+    color: #f5f5f5;
+    font-family: 'Pacifico', cursive; /* Stylish, curvaceous font */
+    background: #292d36;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid #37474f;
+}
+
+/* Header Styling */
+.text-header {
+    color: #ff9f43;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+/* Form Elements */
+.form-control, .form-control:focus {
+    background-color: #1f2428;
+    color: #f5f5f5;
+    border: 1px solid #37474f;
+    border-radius: 10px;
+}
+.form-group label {
+    color: #ff9f43;
+    font-size: 1.1rem;
+}
+
+/* Priority Range Styling */
+input[type="range"] {
+    width: 100%;
+    accent-color: #cbff53;
+}
+.badge-priority {
+    background-color: gold;
+    color: #f5f5f5;
+    padding: 5px 12px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+/* Submit Button Styling */
+.btn-submit-task {
+    background-color: #ff6b6b;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background 0.3s, transform 0.3s;
+}
+.btn-submit-task:hover {
+    background-color: #e84118;
+    transform: scale(1.05);
+}
+
+.close-btn {
+    position: absolute; /* Position it in the top right corner */
+    top: 10px;
+    right: 10px;
+    background: transparent; 
+    border: none; 
+    color: #ff6b6b; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+}
+
+.close-btn:hover {
+    color: #e84118; 
+}
+.formdiv{position: relative;}
+/* Manage cell container */
+.manage-cell {
+    position: relative;
+    cursor: pointer;
+}
+/* Popup container */
+.manage-popup {
+    display: none; /* Initially hidden, will be shown on demand */
+    position: absolute; /* Position it relative to the viewport */
+    background-color: white; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Ensure it’s above other content */
+    padding: 15px; /* Padding around content */
+    transition: opacity 0.2s; /* Smooth transition for visibility */
+}
+
+/* Popup button styles */
+.manage-popup button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 10px 15px; /* Padding around text */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 5px 0; /* Spacing between buttons */
+    width: 100%; /* Full width */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth hover effects */
+}
+
+/* Button hover effects */
+.manage-popup button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slightly lift the button */
+}
+
+/* Optional: Add a fade-in effect when displaying the popup */
+.manage-popup.fade-in {
+    display: grid; 
+    grid-template-columns: 1;/* Ensure it is displayed */
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 0.3s forwards; /* Animate the opacity */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* End state is fully visible */
+    }
+}
+
+
+/* Popup visible on tooltip hover */
+.manage-cell:hover .manage-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

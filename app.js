@@ -31,7 +31,7 @@ app.get('/tasks',async (req,res)=>{
 })
 app.post('/tasks',upload.none(), async (req,res)=>{
     const date =new Date()
-    const{name,description,hours,minutes,duration,priority}=req.body
+    const{name,description,hours,minutes,duration,priority,period}=req.body
     new_task.taskname=name
     new_task.description=description
     new_task.start_time_hour=hours
@@ -39,8 +39,9 @@ app.post('/tasks',upload.none(), async (req,res)=>{
     new_task.taskdate=Date.now()
     new_task.duration=duration
     new_task.priority=priority
+    new_task.period=period
     await new_task.save()
-    console.log(name);
+    console.log(period);
 
     res.sendStatus(200)
 })
