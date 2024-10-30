@@ -35,10 +35,11 @@ app.get('/tasks',async (req,res)=>{
     
     res.json(tasks)
 })
+new_task.taskname=name
 app.post('/tasks',upload.none(), async (req,res)=>{
     const date =new Date()
     const{name,description,hours,minutes,duration,priority,period}=req.body
-    new_task.taskname=name
+    
     new_task.description=description
     new_task.start_time_hour=hours
     new_task.start_time_min=minutes
