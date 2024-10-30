@@ -17,7 +17,7 @@ mongoose.connect(uri, {
 });
 
 const taskmodel=require('./src/models/tasks')
-const new_task=new taskmodel()
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -35,8 +35,9 @@ app.get('/tasks',async (req,res)=>{
     
     res.json(tasks)
 })
-new_task.taskname=name
+
 app.post('/tasks',upload.none(), async (req,res)=>{
+    const new_task=new taskmodel()
     const date =new Date()
     const{name,description,hours,minutes,duration,priority,period}=req.body
     
