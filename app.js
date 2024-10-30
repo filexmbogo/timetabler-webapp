@@ -30,7 +30,7 @@ app.get('/',(req,res)=>{
 })
 app.get('/tasks',async (req,res)=>{ 
     let tasks=await taskmodel.find()
-    console.log(tasks);
+    
     
     res.json(tasks)
 })
