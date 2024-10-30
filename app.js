@@ -10,12 +10,12 @@ const port=process.env.port||3000
 let tasks
 const uri = "mongodb+srv://filexmbogo:filexmbogo.691@cluster0.rff4u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-// Create Mongoose connection
+async ()=>{
 await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
-
+}
 const taskmodel=require('./src/models/tasks')
 const new_task=new taskmodel()
 
