@@ -10,14 +10,13 @@ const port=process.env.port||3000
 let tasks
 const uri = "mongodb+srv://filexmbogo:filexmbogo.691@cluster0.rff4u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-async ()=>{
-await mongoose.connect(uri, {
+// Create Mongoose connection
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
-}
 const taskmodel=require('./src/models/tasks')
-const new_task=new taskmodel()
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -35,11 +34,11 @@ app.get('/tasks',async (req,res)=>{
     
     res.json(tasks)
 })
-
 app.post('/tasks',upload.none(), async (req,res)=>{
+    const new_task=new taskmodel()
     const date =new Date()
     const{name,description,hours,minutes,duration,priority,period}=req.body
-    
+    new_task.taskname=name
     new_task.description=description
     new_task.start_time_hour=hours
     new_task.start_time_min=minutes

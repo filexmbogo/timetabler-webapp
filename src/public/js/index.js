@@ -117,7 +117,7 @@ addbtn.addEventListener('click', function() {
     const formData = new FormData(form); // Collect form data
 
     axios.post('/tasks', formData)
-      .then(response => {
+      .then(response => { alert('')
         console.log([...formData.entries()]); // Handle success
       })
       .catch(error => {
